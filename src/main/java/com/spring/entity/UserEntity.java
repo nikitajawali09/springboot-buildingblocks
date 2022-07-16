@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "USERS")
@@ -16,10 +19,14 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
 
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME",unique = true)
+	@Size(min = 5,max = 30)
+	@NotNull
 	private String userName;
 
-	@Column(name = "FIRST_NAME")
+	@Column(name = "FIRST_NAME",nullable = false)
+	@Size(min=2,max = 20)
+	@NotEmpty
 	private String firstName;
 
 	@Column(name = "LAST_NAME")
