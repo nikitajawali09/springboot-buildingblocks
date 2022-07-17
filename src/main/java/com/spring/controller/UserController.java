@@ -24,13 +24,18 @@ import com.spring.exceptions.UserNameNotFoundException;
 import com.spring.payload.UserRequest;
 import com.spring.service.UserService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/users")
+@Api(tags = "User management service",description = "controller for user")
 public class UserController {
 	
 	@Autowired
 	UserService userService;
 	
+	@ApiOperation(value = "Retrieve List of all users")
 	@GetMapping("/getAllUsers")
 	public List<UserEntity> getAllUsers(){
 		return userService.getAllUsers();

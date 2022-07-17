@@ -2,6 +2,7 @@ package com.spring.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -13,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 //@EnableSwagger2
+//@Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
 
 	@Bean
@@ -23,7 +25,9 @@ public class SwaggerConfig {
 				.build();
 	}
 	
+	//http://localhost:8083/actuator/health
 	
+	//http://localhost:8083/actuator/info
 	
 	
 	//Meta-data : http://localhost:8082/v2/api-docs

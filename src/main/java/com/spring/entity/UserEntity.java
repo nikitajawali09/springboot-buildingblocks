@@ -10,18 +10,22 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 
 @Entity
 @Table(name = "USERS")
 @ApiModel(description = "Entity for user")
-public class UserEntity extends ResourceSupport{
+public class UserEntity {
 
 	@ApiModelProperty(notes="auto generated",required = true,position = 1)
 	@Id
 	@Column(name = "USER_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView()
 	private Long userId;
 
 	@Column(name = "USERNAME",unique = true)
